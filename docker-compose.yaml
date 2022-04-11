@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    container_name: FastAPI
+    build: . 
+    volumes:
+      - ./app :/app 
+    ports:
+      - "8000:8000"
+  mariadb:
+    image: lscr.io/linuxserver/mariadb
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+      - TZ=Asia/Tokyo
+      - MYSQL_DATABASE=Cloudmarkdown
+      - MYSQL_USER=Cloudmarkdown
+      - MYSQL_PASSWORD=Cloudmarkdown
+    volumes:
+      - ./path_to_data :/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
