@@ -1,25 +1,30 @@
 version: '3'
 services:
+  node:
+    image: node:14.9.0-alpine3.10
+    container_name: node
+    volumes:
+      - ./app:/app
+    tty: true
+    ports:
+      - 8080:8080
   app:
     container_name: FastAPI
     build: . 
     volumes:
-      - ./app :/app 
+      - ./api :/app 
     ports:
       - "8000:8000"
-  mariadb:
-    image: lscr.io/linuxserver/mariadb
-    container_name: mariadb
+  postgres:
+    image: postgres:latest
+    restart: always
     environment:
-      - PUID=1000
-      - PGID=1000
-      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
-      - TZ=Asia/Tokyo
-      - MYSQL_DATABASE=Cloudmarkdown
-      - MYSQL_USER=Cloudmarkdown
-      - MYSQL_PASSWORD=Cloudmarkdown
-    volumes:
-      - ./path_to_data :/config
+      POSTGRES_USER: Cloudmarkdown
+      POSTGRES_PASSWORD: Cloudmarkdown
+      PGPASSWORD: Cloudmarkdown
+      POSTGRES_DB: Cloudmarkdown
+      TZ: "Asia/Tokyo"
     ports:
-      - 3306:3306
-    restart: unless-stopped
+      - 5432:5432
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
