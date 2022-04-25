@@ -12,7 +12,7 @@ services:
     container_name: FastAPI
     build: . 
     volumes:
-      - ./api :/app 
+      - ./api:/app 
     ports:
       - "8000:8000"
   postgres:
