@@ -15,6 +15,10 @@ services:
       - ./api:/app 
     ports:
       - "8000:8000"
+    command: >
+      bash -c "yarn install &&
+      yarn run generate -g &&
+      cd ./dist && npm run start"
   postgres:
     image: postgres:latest
     restart: always
