@@ -20,7 +20,7 @@ services:
     volumes:
       - ./api:/app 
     ports:
-      - "3000:8000"
+      - "3000:3000"
     depends_on:
       - "postgres"
   nuxt-app:
