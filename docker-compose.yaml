@@ -20,7 +20,7 @@ services:
     volumes:
       - ./api:/app 
     ports:
-      - "3000:3000"
+      - "8000:8000"
     depends_on:
       - "postgres"
   nuxt-app:
@@ -30,7 +30,7 @@ services:
     volumes:
       - ./app:/app
     ports:
-      - "8080:8080"
+      - "3000:3000"
     depends_on:
       - "postgres"
     working_dir: /app
