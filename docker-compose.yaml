@@ -21,6 +21,7 @@ services:
       - ./api:/app 
     ports:
       - "8000:8000"
+    tty: true
     depends_on:
       - "postgres"
   nuxt-app:
