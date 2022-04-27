@@ -51,4 +51,4 @@ RUN pip3 install fastapi uvicorn python-multipart python-jose peewee python-dote
 
 WORKDIR /app
 
-CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
