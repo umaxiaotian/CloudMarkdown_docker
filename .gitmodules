@@ -1,0 +1,6 @@
+[submodule "api"]
+	path = api
+	url = https://github.com/umaxiaotian/CloudMarkdown_API.git
+[submodule "app"]
+	path = app
+	url = https://github.com/umaxiaotian/CloudMarkdown.git
